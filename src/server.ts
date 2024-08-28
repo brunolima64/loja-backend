@@ -23,7 +23,8 @@ server.use('/signup/me', router);
 server.use(notFoundRequest);
 server.use(requestHandlerError);
 
-server.listen(process.env.PORT, () => {
-    console.log("🚀 Servidor rodando em: http://localhost:3000");
+let PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log("🚀 Servidor rodando em: http://localhost:" + PORT);
 })
 
