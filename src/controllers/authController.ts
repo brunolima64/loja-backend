@@ -2,7 +2,8 @@ import { RequestHandler } from "express";
 import User from "../models/User";
 import State from "../models/State";
 import { z } from "zod";
-import bcrypt from "bcryptjs";
+
+const bcrypt = require("bcryptjs");
 
 export const signup: RequestHandler = async (req, res) => {
 

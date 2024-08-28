@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import User from "../models/User";
 import { z } from "zod";
-import bcrypt from "bcrypt"
+const bcrypt = require("bcryptjs");
 
 export const getUser: RequestHandler = async (req, res) => {
     const token = req.headers.authorization;
