@@ -57,7 +57,7 @@ export const getAll: RequestHandler = async (req, res) => {
     type SortOrderType = 1 | -1;
     let sortOrder: SortOrderType = (sort === "asc" ? 1 : -1);
 
-    const ads = await Ad.find(inputFilter, { title: 1 })
+    const ads = await Ad.find(inputFilter)
         .sort({ title: sortOrder })
         .skip(skipAd)
         .limit(limitAd);
