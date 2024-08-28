@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm rebuild bcrypt",
     "start": "node --env-file=.env --import=tsx --watch ./src/server.ts"
   },
   "author": "",
