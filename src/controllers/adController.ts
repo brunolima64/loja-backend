@@ -57,7 +57,7 @@ export const getAll: RequestHandler = async (req, res) => {
     type SortOrderType = 1 | -1;
     let sortOrder: SortOrderType = (sort === "asc" ? 1 : -1);
 
-    const ads = await Ad.find(inputFilter)
+    const ads = await Ad.find(inputFilter)//
         .sort({ title: sortOrder })
         .skip(skipAd)
         .limit(limitAd);
@@ -127,7 +127,7 @@ export const create: RequestHandler = async (req, res) => {
 
 
             images.push({
-                url: `${process.env.BASE}/assets/${files[i].filename}.jpeg`,
+                url: `${process.env.BASE_PRODUCTION}/assets/${files[i].filename}.jpeg`,
                 default: false,
             })
         }
