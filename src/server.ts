@@ -6,6 +6,7 @@ import { notFoundRequest } from "./routes/notFoundRequest";
 import { requestHandlerError } from "./routes/requestHandlerError";
 import { mongoConnect } from "./database/mongo";
 import dotenv from "dotenv";
+const cors = require('cors');
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ mongoConnect();
 
 const server = express();
 
+server.use(cors());
 server.use(helmet());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
