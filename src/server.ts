@@ -9,12 +9,17 @@ import dotenv from "dotenv";
 const cors = require('cors');
 
 dotenv.config();
-
 mongoConnect();
 
 const server = express();
 
-server.use(cors());
+const corsOptions = {
+    origin: '*', // Permite solicitações de qualquer origem
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+server.use(cors(corsOptions));
 server.use(helmet());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
