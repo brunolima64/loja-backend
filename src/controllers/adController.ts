@@ -17,7 +17,7 @@ export const getCategories: RequestHandler = async (req, res) => {
     for (let i in cats) {
         categories.push({
             ...cats[i],
-            img: `${process.env.BASE}/assets/images/${cats[i].slug}.png`,
+            img: `${process.env.BASE_PRODUCTION}/assets/images/${cats[i].slug}.png`,
         })
     }
     res.json({ categories: categories });
@@ -263,7 +263,7 @@ export const update: RequestHandler = async (req, res) => {
                     .toFile("public/assets/" + files[i].filename + ".jpeg");
 
                 images.push({
-                    url: `${process.env.BASE}/assets/${files[i].filename}.jpeg`,
+                    url: `${process.env.BASE_PRODUCTION}/assets/${files[i].filename}.jpeg`,
                     default: false,
                 });
             }
