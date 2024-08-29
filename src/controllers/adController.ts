@@ -12,14 +12,11 @@ export const getCategories: RequestHandler = async (req, res) => {
         return res.json({ error: "Ocorreu um erro" })
     }
 
-    let categories = [];
+    let categories = cats.map(cat => ({
+        ...cat.toObject(), // Converte os dados do Mongoose em um objeto js
+        img: `${process.env.BASE_PRODUCTION}/assets/images/${cat.slug}.png`,
+    }));
 
-    for (let i in cats) {
-        categories.push({
-            ...cats[i],
-            img: `${process.env.BASE_PRODUCTION}/assets/images/${cats[i].slug}.png`,
-        })
-    }
     res.json({ categories: categories });
 }
 
