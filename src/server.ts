@@ -14,13 +14,15 @@ mongoConnect();
 const server = express();
 
 const corsOptions = {
-    origin: '*', // Permite solicitações de qualquer origem
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 };
 
-server.use(cors(corsOptions));
-server.use(helmet());
+server.use(cors(corsOptions)); // permite todas as origins
+server.use(helmet({
+    crossOriginResourcePolicy: false // Desativa o cabeçalho
+}));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use('/assets/images', express.static(path.join(__dirname, "../public/assets/images")));
