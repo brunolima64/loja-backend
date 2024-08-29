@@ -19,7 +19,7 @@ router.get("/signin/me", authController.signin);
 router.get("/user/me", authValidator, userController.getUser);
 router.put("/user/me/:id", authValidator, userController.updateUser);
 
-router.get("/category", authValidator, adController.getCategories);
+router.get("/category", adController.getCategories);
 router.get("/state", adController.getState);
 
 router.get("/item", adController.getAll);
