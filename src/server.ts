@@ -18,9 +18,8 @@ server.use(cors());
 server.use(helmet());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(express.static(path.join(__dirname, "../public/assets/images")));
-server.use(express.static(path.join(__dirname, "../public/assets")));
-
+server.use('/assets/images', express.static(path.join(__dirname, "../public/assets/images")));
+server.use('/assets', express.static(path.join(__dirname, "../public/assets")));
 
 server.use("/", router);
 server.use('/signup/me', router);
