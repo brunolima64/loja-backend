@@ -14,7 +14,7 @@ const upload = multer({
 router.get("/ping", authValidator, (req, res) => res.json({ pong: true }));
 
 router.post("/signup/me", authController.signup)
-router.get("/signin/me", authController.signin);
+router.post("/signin/me", authController.signin);
 
 router.get("/user/me", authValidator, userController.getUser);
 router.put("/user/me/:id", authValidator, userController.updateUser);
