@@ -110,6 +110,7 @@ export const create: RequestHandler = async (req, res) => {
         return res.json({ error: "Nenhum arquivo recebido" })
     }
 
+    console.log(files)
     let images = [];
 
     for (let i in files) {
@@ -123,7 +124,7 @@ export const create: RequestHandler = async (req, res) => {
 
 
             images.push({
-                url: `${process.env.BASE_PRODUCTION}/assets/${files[i].filename}`,
+                url: `${process.env.BASE_PRODUCTION}/assets/${files[i].filename}.jpeg`,
                 default: false,
             })
         }
