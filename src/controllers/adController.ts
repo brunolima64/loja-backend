@@ -119,12 +119,11 @@ export const create: RequestHandler = async (req, res) => {
 
             await sharp(files[i].path)
                 .resize(500, 500, { fit: "cover" })
-                .jpeg()
                 .toFile("public/assets/" + files[i].filename + ".jpeg");
 
 
             images.push({
-                url: `${process.env.BASE_PRODUCTION}/assets/${files[i].filename}.jpeg`,
+                url: `${process.env.BASE_PRODUCTION}/assets/${files[i].filename}`,
                 default: false,
             })
         }
