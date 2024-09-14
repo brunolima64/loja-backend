@@ -178,9 +178,9 @@ export const create: RequestHandler = async (req, res) => {
 
     // priceNegotiable
     if (req.body.priceNegotiable && req.body.priceNegotiable === "true") {
-        addNewAd.priceNegotiable = req.body.priceNegotiable = true;
+        addNewAd.priceNegotiable = true;
     } else {
-        addNewAd.priceNegotiable = req.body.priceNegotiable = false;
+        addNewAd.priceNegotiable = false;
     }
 
     const NewAd = await Ad.create({
